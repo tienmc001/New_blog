@@ -12,17 +12,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class = 'prose mx-auto'>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>  
+  <body>
 
-    <div>
-      <% if user_signed_in? %>
-      <%= link_to "New blog post", new_blog_post_path%>
-      <%= button_to "Log Out", destroy_user_session_path, method: :delete%>
-      <% end %>
+    <%= render partial: "shared/navbar"%>
+    <div class = 'prose mx-auto' >
+      <div role="alert" class="rounded border-s-4 border-green-500 bg-green-50"> 
+        <p class="notice"><%= notice %></p>
+      </div>
+
+      <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50">
+        <p class="alert"><%= alert %></p>  
+      </div>
+      <%= yield %>
     </div>
-
-    <%= yield %>
   </body>
 </html>
