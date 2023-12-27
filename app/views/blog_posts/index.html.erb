@@ -1,8 +1,8 @@
-<h1>My Blog</h1>
+<h1 class="text-center text-orange-500" >My Blog</h1>
 
 <% @blog_posts.each do |blog_post| %>
     <div>
-        <h2> <%= link_to blog_post.title, blog_post %> </h2>
+        <h2> <%= blog_post.title %> </h2>
         <% if blog_post.draft? %>
             <div class = "p-2 rounded bg-gray-100 text-gray-900">Draft</div>
         <% elsif blog_post.scheduled? %>
@@ -12,7 +12,10 @@
         <% if blog_post.published_at.present? %>
             <%= blog_post.published_at.strftime('%b %d, %Y')%>
         <% end %>
-        <%= blog_post.content %>
+        <div>
+            <%= truncate(strip_tags(blog_post.content.to_s),  length: 200) %>
+        </div>
+        <h2> <%= link_to "Read More", blog_post, class: "inline-block rounded border border-current px-8 py-3 text-sm font-medium text-white bg-blue-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-blue-500 no-underline" %> </h2>
     </div>
     <hr class="my-4 border-t border-gray-300">
 <% end %>    

@@ -1,5 +1,5 @@
 <h1>Edit Blog Post</h1>
 <%= render partial: "form", locals: {blog_post: @blog_post} %>
-<div  class="inline-block rounded border border-red-600 px-12 py-3 text-sm font-medium text-red-600 hover:bg-gray-100 focus:outline-none focus:ring active:bg-indigo-500 " >
+<div  class="inline-block rounded border border-red-600 px-12 py-3 text-sm font-medium text-red-600 hover:bg-gray-100 focus:outline-none focus:ring active:bg-indigo-500 mb-20 " >
     <%= button_to 'Delete', @blog_post, method: :delete, data: {turbo_confirm: "Are you sure?"}%>
 </div>

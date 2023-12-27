@@ -1,5 +1,10 @@
-<%= link_to "Edit", edit_blog_post_path(@blog_post) if user_signed_in? %>
-
-<%= image_tag @blog_post.cover_image if @blog_post.cover_image.present? %>
-<h1> <%= @blog_post.title %> </h1>
-<%= @blog_post.content%>
+<div class="flex items-center justify-center h-screen">
+  <div class="mb-auto">
+    <h1 class="text-3xl font-bold mt-4 mb-2 text-center"> <%= @blog_post.title %> </h1>
+    <%= image_tag @blog_post.cover_image, class: "mx-auto" if @blog_post.cover_image.present? %>
+    <div class="mx-auto">
+      <%= @blog_post.content %>
+    </div>
+    <%= link_to "Edit", edit_blog_post_path(@blog_post), class: "my-20 no-underline inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-indigo-500" if user_signed_in? %>
+  </div>    
+</div>
