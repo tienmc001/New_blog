@@ -15,14 +15,7 @@
   <body>
 
     <%= render partial: "shared/navbar"%>
-    <div class = 'prose mx-auto' >
-      <div role="alert" class="rounded border-s-4 border-green-500 bg-green-50"> 
-        <p class="notice"><%= notice %></p>
-      </div>
-
-      <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50">
-        <p class="alert"><%= alert %></p>  
-      </div>
+    <div class = 'mx-auto w-3/5' >  
       <%= yield %>
     </div>
   </body>
